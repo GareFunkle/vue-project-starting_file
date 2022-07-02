@@ -108,6 +108,9 @@
         </div>
 
         <!--cart display-->
+        <transition name="cart-anim">
+        
+        
         <div v-if="cart.length > 0" class="shopping-cart" id="shopping-cart">        
           <h2>Panier</h2>
 
@@ -129,7 +132,7 @@
                   <button v-on:click="cartPlusOne(product)">
                     <i class="fa fa-plus"></i>
                   </button>
-                  <button @click="cartLessOne(product, id)">
+                  <button @click="cartMinusOne(product, id)">
                     <i class="fa fa-minus" ></i>
                   </button>
                   <button @click="cartRemoveItem(id)">
@@ -138,8 +141,17 @@
                 </div>
               </div>  
             </div>
+          </div>  
+
+          <div class="grand-total">
+            <div class="total">
+              <h2>Total</h2>
+              <h2>{{ cartTotalAmount }}€</h2>
+            </div>
+            <h6>Total articles : {{ itemTotalAmount }}</h6>
+          </div>
         </div>
-      </div>
+      </transition>
     </div>
     
     
